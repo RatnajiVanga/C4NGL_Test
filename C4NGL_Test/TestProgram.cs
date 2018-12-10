@@ -24,8 +24,8 @@ namespace SimED.General
                             {
                                 Requirements = new List<Requirement>
                                 {
-                                    new Requirement{ Condition = res => res.Id > 5, Quantity = 2 },
-                                    new Requirement{ Condition = res => res.Id < 3, Quantity = 1 },
+                                    new Requirement{ Condition = res => res.Id > 0, Quantity = 2 },
+                                    
                                 },
                                 ServiceTime = rs => Exponential.Sample(rs, TimeSpan.FromMinutes(5)),
                             },
@@ -33,8 +33,8 @@ namespace SimED.General
                             {
                                 Requirements = new List<Requirement>
                                 {
-                                    new Requirement{ Condition = res => res.Id > 7, Quantity = 1 },
-                                    new Requirement{ Condition = res => res.Id > 2 && res.Id < 5, Quantity = 1 },
+                                    new Requirement{ Condition = res => res.Id > 0, Quantity = 1 },
+                                    
                                 },
                                 ServiceTime = rs => Exponential.Sample(rs, TimeSpan.FromMinutes(5)),
                             },
@@ -49,39 +49,39 @@ namespace SimED.General
                             //},
                         }
                     },
-                    new Procedure
-                    {
-                        Steps = new List<Step>
-                        {
-                            new Step
-                            {
-                                Requirements = new List<Requirement>
-                                {
-                                    new Requirement{ Condition = res => res.Id > 6 && res.Id < 8, Quantity = 1 },
-                                    new Requirement{ Condition = res => res.Id > -1 && res.Id < 4, Quantity = 1 },
-                                },
-                                ServiceTime = rs => Exponential.Sample(rs, TimeSpan.FromMinutes(5)),
-                            },
-                            new Step
-                            {
-                                Requirements = new List<Requirement>
-                                {
-                                    new Requirement{ Condition = res => res.Id > 3 && res.Id < 11, Quantity = 2 },
-                                    new Requirement{ Condition = res => res.Id > 1 && res.Id < 6, Quantity = 1 },
-                                },
-                                ServiceTime = rs => Exponential.Sample(rs, TimeSpan.FromMinutes(5)),
-                            },
-                            new Step
-                            {
-                                Requirements = new List<Requirement>
-                                {
-                                    new Requirement{ Condition = res => res.Id > -1 && res.Id < 3, Quantity = 1 },
-                                    new Requirement{ Condition = res => res.Id > 6 && res.Id < 11, Quantity = 1 },
-                                },
-                                ServiceTime = rs => Exponential.Sample(rs, TimeSpan.FromMinutes(5)),
-                            },
-                        }
-                    },
+                    //new Procedure
+                    //{
+                    //    Steps = new List<Step>
+                    //    {
+                    //        new Step
+                    //        {
+                    //            Requirements = new List<Requirement>
+                    //            {
+                    //                new Requirement{ Condition = res => res.Id > 6 && res.Id < 8, Quantity = 1 },
+                    //                new Requirement{ Condition = res => res.Id > -1 && res.Id < 4, Quantity = 1 },
+                    //            },
+                    //            ServiceTime = rs => Exponential.Sample(rs, TimeSpan.FromMinutes(5)),
+                    //        },
+                    //        new Step
+                    //        {
+                    //            Requirements = new List<Requirement>
+                    //            {
+                    //                new Requirement{ Condition = res => res.Id > 3 && res.Id < 11, Quantity = 2 },
+                    //                new Requirement{ Condition = res => res.Id > 1 && res.Id < 6, Quantity = 1 },
+                    //            },
+                    //            ServiceTime = rs => Exponential.Sample(rs, TimeSpan.FromMinutes(5)),
+                    //        },
+                    //        new Step
+                    //        {
+                    //            Requirements = new List<Requirement>
+                    //            {
+                    //                new Requirement{ Condition = res => res.Id > -1 && res.Id < 3, Quantity = 1 },
+                    //                new Requirement{ Condition = res => res.Id > 6 && res.Id < 11, Quantity = 1 },
+                    //            },
+                    //            ServiceTime = rs => Exponential.Sample(rs, TimeSpan.FromMinutes(5)),
+                    //        },
+                    //    }
+                    //},
                 },
                 Resources = Enumerable.Range(0, 10).Select(id => new Resource { Id = id, Tag = id.ToString() }).ToList(),
             };
